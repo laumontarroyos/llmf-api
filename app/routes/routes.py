@@ -16,6 +16,11 @@ from flask_jwt_extended import jwt_required, get_current_user, get_jwt_identity
 #    return jsonify({'message': f'Oi laureano!'})
 
 
+@app.route('/teste', methods=['GET'])
+def teste():
+    return jsonify({'message': f'Olá Laureano!'})
+
+
 @app.route('/', methods=['GET'])
 @jwt_required
 def root():
