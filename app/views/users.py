@@ -1,7 +1,8 @@
 from werkzeug.security import generate_password_hash
-from app import db
+from app import db, jwt
 from flask import request, jsonify
 from ..models.users import Users, user_schema, users_schema
+
 
 
 """Retorna lista de usuários"""
@@ -110,9 +111,10 @@ def user_by_username(username):
     except:
         return None
 
+
 @jwt.user_loader_callback_loader
-def user_by_id( id):
+def user_loader_callback(identity):
     try:
-        return Users.query.get(id)
+        return Users.query.get(identity)
     except:
         return None
