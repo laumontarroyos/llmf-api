@@ -3,6 +3,7 @@ import random
 import string
 from os import environ, path
 from dotenv import load_dotenv
+from datetime import timedelta
 
 
 basedir = path.abspath(path.dirname(__file__))
@@ -21,5 +22,9 @@ class Config:
     #SQLALCHEMY_ECHO = True
     #SECRET_KEY = key
     JWT_SECRET_KEY = key 
-    JWT_ACCESS_TOKEN_EXPIRES = environ.get('JWT_ACCESS_TOKEN_EXPIRES')
+    #JWT_ACCESS_TOKEN_EXPIRES = environ.get('JWT_ACCESS_TOKEN_EXPIRES')
+    JWT_ACCESS_TOKEN_EXPIRES = timedelta(
+        minutes=int(environ.get('JWT_ACCESS_TOKEN_EXPIRES'))
+    )
+   
     DEBUG = environ.get('DEBUG')

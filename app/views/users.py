@@ -109,3 +109,10 @@ def user_by_username(username):
         return Users.query.filter(Users.username == username).one()
     except:
         return None
+
+@jwt.user_loader_callback_loader
+def user_by_id( id):
+    try:
+        return Users.query.get(id)
+    except:
+        return None

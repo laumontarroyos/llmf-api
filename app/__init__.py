@@ -1,7 +1,6 @@
 from flask import Flask, jsonify
 from flask_marshmallow import Marshmallow
 from flask_sqlalchemy import SQLAlchemy
-#from flask_jwt_extended import JWTManager
 from flask_jwt_extended import JWTManager
 
 app = Flask(__name__)
@@ -16,6 +15,5 @@ def cria_banco():
     db.create_all()
 
 from .models import users
-#from .models import users, posts, commentaries
 from .views import users, helper
 from .routes import routes

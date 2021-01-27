@@ -20,9 +20,13 @@ from flask_jwt_extended import jwt_required, get_current_user, get_jwt_identity
 #@helper.token_required
 @jwt_required
 def root():
-    #current_user = get_jwt_identity()
+    variavel_id = get_jwt_identity()
+    #variavel_usuario = users.get_user(variavel_id)
+    variavel_nome = get_current_user()
+
     #return jsonify({'message': f'Hello {(users.get_user(get_jwt_identity())).name}'})
-    return jsonify({'message': f'Hello {current_user.name}'})
+    #return jsonify({'message': f'Hello {current_user.name}'})
+    return jsonify({'message': f'Hello teste {variavel_nome}'})
 
 
 @app.route('/authenticate', methods=['POST'])
