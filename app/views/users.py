@@ -105,12 +105,15 @@ def delete_user(id):
             return jsonify({'message': 'unable to delete', 'data': {}}), 500
 
 
+"""Usada na autenticação pra validar o login passado pelo usuário"""
+
 def user_by_username(username):
     try:
         return Users.query.filter(Users.username == username).one()
     except:
         return None
 
+"""Definição necessária para poder utilizar get_current_user() da flask_jwt_extended"""
 
 @jwt.user_loader_callback_loader
 def user_loader_callback(identity):

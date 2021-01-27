@@ -8,14 +8,6 @@ from flask_jwt_extended import jwt_required, get_current_user, get_jwt_identity
  as views(controllers)  e as relacionando por meio de funções"""
 
 
-#@app.route('/', methods=['GET'])
-#@helper.token_required
-#def root(current_user):
-#    return jsonify({'message': f'Oi {current_user.name}'})
-#def root():
-#    return jsonify({'message': f'Oi laureano!'})
-
-
 @app.route('/teste', methods=['GET'])
 def teste():
     return jsonify({'message': f'Olá Laureano!'})
